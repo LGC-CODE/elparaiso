@@ -176,7 +176,7 @@ app.controller('homeCtrl', ['$scope', function($scope){
 	$scope.homeBackground = function(){
 		$('.texture-overlay')
 			.css({ 
-				'background': 'url("img/batthern.png")', 
+				'background': 'url("img/thread.png")', 
 				'background-color' : 'rgba(34, 61, 110, 0.34)',
 				'opacity': '1' 
 			});
