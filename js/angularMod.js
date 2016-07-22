@@ -111,8 +111,6 @@ app.controller('navCtrl', ['$scope', function($scope){
 }]);
 
 app.controller('mainCtrl', ['$scope', function($scope){
-	var audio = new Audio('http://incompetech.com/music/royalty-free/mp3-royaltyfree/Suave%20Standpipe.mp3');
-	audio.volume = 0.2;
 
 	$scope.loadPacks = function(){
 		$('.wp2').waypoint(function() {
@@ -122,17 +120,50 @@ app.controller('mainCtrl', ['$scope', function($scope){
 		});
 	}
 
-	$scope.soundStart = function() {
-        audio.play();
+	$scope.emailUs = function(){
+		if(!$scope.subject || $scope.subject == undefined  || $scope.subject == ""){ return; }
+		if(!$scope.body || $scope.body == undefined || $scope.body == ""){ return; }
+
+		subject = encodeURIComponent($scope.subject);
+		body = encodeURIComponent($scope.body);
+
+		var link = "mailto:elparaisonievesyraspados@gmail.com?subject=";
+		link += subject;
+		link += '&body=';
+		link += body;
+
+		window.location.href = link;
+
+		$('.email').fadeOut(1500);
+		$('.success').delay(1000).fadeIn(1000);
 	}
 
-	$scope.hideAlertBox = function(){
-		$('.alertBox').fadeOut(2000);
-	}
+	$scope.pictures = [
+		{ 
+			set1: [
+				{url: 'http://img1.beachbodyimages.com/beachbody/image/upload/v1435693633/beachbodyblog/Chocolate-Peanut-Butter-Shakeology-Ice-Cream.jpg'},
+				{url: 'http://img1.beachbodyimages.com/beachbody/image/upload/v1435693633/beachbodyblog/Chocolate-Peanut-Butter-Shakeology-Ice-Cream.jpg'},
+				{url: 'http://img1.beachbodyimages.com/beachbody/image/upload/v1435693633/beachbodyblog/Chocolate-Peanut-Butter-Shakeology-Ice-Cream.jpg'},
+				{url: 'http://img1.beachbodyimages.com/beachbody/image/upload/v1435693633/beachbodyblog/Chocolate-Peanut-Butter-Shakeology-Ice-Cream.jpg'}
+			]
+		},
+		{
+			set2: [
+				{url: 'http://img1.beachbodyimages.com/beachbody/image/upload/v1435693633/beachbodyblog/Chocolate-Peanut-Butter-Shakeology-Ice-Cream.jpg'},
+				{url: 'http://img1.beachbodyimages.com/beachbody/image/upload/v1435693633/beachbodyblog/Chocolate-Peanut-Butter-Shakeology-Ice-Cream.jpg'},
+				{url: 'http://img1.beachbodyimages.com/beachbody/image/upload/v1435693633/beachbodyblog/Chocolate-Peanut-Butter-Shakeology-Ice-Cream.jpg'},
+				{url: 'http://img1.beachbodyimages.com/beachbody/image/upload/v1435693633/beachbodyblog/Chocolate-Peanut-Butter-Shakeology-Ice-Cream.jpg'}
+			]
+		}
+		
+	];
 
 }]);
 
 app.controller('homeCtrl', ['$scope', function($scope){
+	var audio = new Audio('http://incompetech.com/music/royalty-free/mp3-royaltyfree/Suave%20Standpipe.mp3');
+	audio.volume = 0.2;
+
 	var comments = [
 		{name: 'luis', city: 'oakland', comment: 'this is a really good ice cream parlor!!!'},
 		{name: 'john', city: 'san leandro', comment: 'this is a really good ice cream parlor!!!'},
@@ -157,6 +188,10 @@ app.controller('homeCtrl', ['$scope', function($scope){
 				'background-repeat': 'no-repeat',
 				'background-attachment': 'fixed'
 			 });
+	}
+
+	$scope.soundStart = function() {
+        audio.play();
 	}
 
 }]);

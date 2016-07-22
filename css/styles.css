@@ -394,7 +394,8 @@ button, input, select, textarea {
 * the UA stylesheet.
 */
 button, input {
-    line-height: normal
+    line-height: normal;
+    color: black;
 }
 
 /*
@@ -812,7 +813,7 @@ Features About
     background-color: rgba(147, 147, 147, 0.37);
 }*/
 
-.info {
+.about {
     padding: 8% 0;
 }
 
@@ -1055,16 +1056,6 @@ Screenshots
 /* ==========================================================================
 Download Now
 ========================================================================== */
-.download {
-    padding: 120px 0;
-    background-color: #3f6184;
-}
-.download h1 {
-    margin: 0 0 15px 0;
-    color: #fff;
-    font-weight: 400;
-    font-size: 40px;
-}
 
 footer .small-text p {
     font-so: ;
@@ -1223,3 +1214,18 @@ Waypoints
     -webkit-animation-delay: 1s;
     animation-delay: 1s;
 }
+
+/* ==========================================================================
+info section
+========================================================================== */
+
+.info {
+    padding: 8% 0;
+}
+
+.success {
+    display: none;
+}
+
+
+

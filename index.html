@@ -45,7 +45,7 @@
 					<li><a href="#/gallery"><i class="fa fa-picture-o"></i>Gallery</a></li>
 				</ul>
 				<ul>
-					<li><a href="#/contact"><i class="fa fa-exclamation-circle"></i>Contact</a></li>
+					<li><a href="#/info"><i class="fa fa-exclamation-circle"></i>Address</a></li>
 					<li><a href="#/home"><i class="fa fa-home"></i>Home</a></li>		
 				</ul>
 			</nav>
@@ -70,16 +70,44 @@
 			</section>
 		</header>
 	</script>
-	<script type="text/ng-template" id="/about.html">
-		<div ng-init="aboutBackground()">
-			<h1>Hello world</h1>
+	<script type="text/ng-template" id="/info.html">
+		<div class="info">
+			<div class="container">
+				<div class="col-md-12">
+					<h2>We Value and Appreciate Every Customer</h2>
+					<p>Thank You for Choosing Us!</p>
+				</div>
+				<div class="col-md-6">
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3154.2837503645046!2d-121.43717234961763!3d37.75994437966286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80903d576f6d943b%3A0xeb26a334d40fb1b5!2s3244+N+Tracy+Blvd%2C+Tracy%2C+CA+95376!5e0!3m2!1sen!2sus!4v1469149401663" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+				</div>
+				<div class="col-md-6">
+					<address>
+						<h1>3244 N Tracy Blvd</h1>
+						<h1>Tracy, CA 95376</h1>
+					</address>
+					<div class="success">Email Generated Successfully</div>
+					<div class="email">
+						<form ng-submit="emailUs()">
+							<div class="form-group">
+								<label>Subject:</label>
+								<input ng-model="subject" class="form-control" type="text/plain">
+							</div>
+							<div class="form-group">
+								<label>Message:</label>
+								<input ng-model="body" class="form-control" type="text/plain">
+							</div>
+							<button type="submit" class="btn btn-default">Email Us</button> 
+						</form>
+					</div>
+				</div>
+			</div>
 		</div>
 	</script>
 	<script type="text/ng-template" id="/contact.html">
 		
 	</script>
-	<script type="text/ng-template" id="/info.html">
-		<section class="info">
+	<script type="text/ng-template" id="/about.html">
+		<section class="about" ng-init="aboutBackground()">
 			<div class="container">
 				<div class="col-md-6">
 					<img width="50%" src="http://www.beyazkosk.com.tr/wp-content/gallery/dondurmalar/dondurma05.jpg">
@@ -103,7 +131,8 @@
 					<div class="col-md-12">
 						<h1>Packed Full of Powerful Features</h1>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
-						<p><a href="#screenshots" class="arrow-btn">See the screenshots! <i class="fa fa-long-arrow-right"></i></a></p>
+						<p>Like What You See? Stop by!</p>
+						<p><a href="#info" class="btn btn-default">View Address</a></p>
 					</div>
 				</div>
 			</div>
@@ -112,12 +141,12 @@
 			<div class="container-fluid">
 				<div class="row">
 					<ul class="grid">
-						<li>
+						<li ng-repeat="pics in pictures[0].set1">
 							<figure>
-								<img src="img/01-screenshot.jpg" alt="Screenshot 01">
+								<img ng-src="{{ pics.url }}" alt="Screenshot 01">
 								<figcaption>
 								<div class="caption-content">
-									<a href="img/large/01.jpg" class="single_image">
+									<a ng-href="{{ pics.url }}" class="single_image">
 										<i class="fa fa-search"></i><br>
 										<p>Optimised For Design</p>
 									</a>
@@ -125,96 +154,19 @@
 								</figcaption>
 							</figure>
 						</li>
-						<li>
-							<figure>
-								<img src="img/02-screenshot.jpg" alt="Screenshot 01">
-								<figcaption>
-								<div class="caption-content">
-									<a href="img/large/02.jpg" class="single_image">
-										<i class="fa fa-search"></i><br>
-										<p>User Centric Design</p>
-									</a>
-								</div>
-								</figcaption>
-							</figure>
-						</li>
-						<li>
-							<figure>
-								<img src="img/03-screenshot.jpg" alt="Screenshot 01">
-								<figcaption>
-								<div class="caption-content">
-									<a href="img/large/03.jpg" class="single_image">
-										<i class="fa fa-search"></i><br>
-										<p>Responsive and Adaptive</p>
-									</a>
-								</div>
-								</figcaption>
-							</figure>
-						</li>
-						<li>
-							<figure>
-								<img src="img/04-screenshot.jpg" alt="Screenshot 01">
-								<figcaption>
-								<div class="caption-content">
-									<a href="img/large/04.jpg" class="single_image">
-										<i class="fa fa-search"></i><br>
-										<p>Absolutely Free</p>
-									</a>
-								</div>
-								</figcaption>
-							</figure>
-						</li>
+						
 					</ul>
 				</div>
-				<div class="row">
+				<div class="row">   <!--4 pics each-->
 					<ul class="grid">
-						<li>
+						<li ng-repeat="pics in pictures[1].set2">
 							<figure>
-								<img src="img/05-screenshot.jpg" alt="Screenshot 01">
+								<img ng-src="{{ pics.url }}" alt="Screenshot 01">
 								<figcaption>
 								<div class="caption-content">
-									<a href="img/large/05.jpg" class="single_image">
+									<a ng-href="{{ pics.url }}" class="single_image">
 										<i class="fa fa-search"></i><br>
 										<p>Multi-Purpose Design</p>
-									</a>
-								</div>
-								</figcaption>
-							</figure>
-						</li>
-						<li>
-							<figure>
-								<img src="img/06-screenshot.jpg" alt="Screenshot 01">
-								<figcaption>
-								<div class="caption-content">
-									<a href="img/large/06.jpg" class="single_image">
-										<i class="fa fa-search"></i><br>
-										<p>Exclusive to Codrops</p>
-									</a>
-								</div>
-								</figcaption>
-							</figure>
-						</li>
-						<li>
-							<figure>
-								<img src="img/07-screenshot.jpg" alt="Screenshot 01">
-								<figcaption>
-								<div class="caption-content">
-									<a href="img/large/07.jpg" class="single_image">
-										<i class="fa fa-search"></i><br>
-										<p>Made with Love</p>
-									</a>
-								</div>
-								</figcaption>
-							</figure>
-						</li>
-						<li>
-							<figure>
-								<img src="img/08-screenshot.jpg" alt="Screenshot 01">
-								<figcaption>
-								<div class="caption-content">
-									<a href="img/large/08.jpg" class="single_image">
-										<i class="fa fa-search"></i><br>
-										<p>In Sydney, Australia</p>
 									</a>
 								</div>
 								</figcaption>
