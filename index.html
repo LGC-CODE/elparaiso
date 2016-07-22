@@ -53,14 +53,14 @@
 	</div>
 		<ui-view></ui-view>
 	<script type="text/ng-template" id="/home.html">
-		<header ng-init="homeBackground()" ng-click="soundStart()">
+		<header ng-init="homeBackground()">
 			<section class="hero">
 				<div class="container">
 					<div class="row hero-content">
 						<div class="col-md-12 col-lg-12 visible-md visible-lg">
 							<img class="img-adjust animated fadeInLeft" width="43%" src="img/logo.png">
 						</div>
-						<div class="col-md-12 text-center">
+						<div class="col-md-12 text-center" ng-click="soundStart()">
 							<h1 class="animated fadeInDown">El Paraiso</h1>
 							<h2>Nieves Y Raspados</h2>
 							<a href="#/gallery" class="use-btn animated fadeInUp">View Gallery</a> <a href="#/info" class="learn-btn animated fadeInUp">View Address<i class="fa fa-arrow-down"></i></a>
@@ -71,11 +71,16 @@
 		</header>
 	</script>
 	<script type="text/ng-template" id="/info.html">
-		<div class="info">
+		<div class="info animated zoomInDown">
 			<div class="container">
-				<div class="col-md-12">
-					<h2>We Value and Appreciate Every Customer</h2>
-					<p>Thank You for Choosing Us!</p>
+				<div class="col-md-12 address">
+					<div class="col-md-6">
+						<h2>We Value and Appreciate Every Customer</h2>
+						<p>Thank You for Choosing Us!</p>
+					</div>
+					<div class="col-md-6">
+						<a href="#/about"><button class="btn btn-default">Continue</button></a>
+					</div>
 				</div>
 				<div class="col-md-6">
 					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3154.2837503645046!2d-121.43717234961763!3d37.75994437966286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80903d576f6d943b%3A0xeb26a334d40fb1b5!2s3244+N+Tracy+Blvd%2C+Tracy%2C+CA+95376!5e0!3m2!1sen!2sus!4v1469149401663" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
@@ -109,18 +114,28 @@
 	<script type="text/ng-template" id="/about.html">
 		<section class="about" ng-init="aboutBackground()">
 			<div class="container">
-				<div class="col-md-6">
-					<img width="50%" src="http://www.beyazkosk.com.tr/wp-content/gallery/dondurmalar/dondurma05.jpg">
-				</div>
-				<div class="col-md-6">
+				<div class="col-md-12 text-center about-margin">
 					<h1 class="animated bounceInDown">The Best Ice Cream in Town!</h1>
 					<h3 class="animated fadeInUp">Come in and Try Our Exotic Flavors!</h3>
+				</div>
+				<div class="col-md-6">
+					<img class="about-img" width="50%" src="http://www.beyazkosk.com.tr/wp-content/gallery/dondurmalar/dondurma05.jpg">
+				</div>
+				<div class="col-md-3 text-center">
 					<h2 class="animated bounceInLeft">Wine</h2>
 					<h2 class="animated bounceInRight">Tequila</h2>
 					<h2 class="animated bounceInLeft">Walnut</h2>
 					<h2 class="animated bounceInRight">Triple Berry</h2>
 					<h2 class="animated bounceInLeft">Egg-Nog</h2>
 				</div>
+				<div class="col-md-3 text-center">
+					<h2 class="animated bounceInLeft">Wine</h2>
+					<h2 class="animated bounceInRight">Tequila</h2>
+					<h2 class="animated bounceInLeft">Walnut</h2>
+					<h2 class="animated bounceInRight">Triple Berry</h2>
+					<h2 class="animated bounceInLeft">Egg-Nog</h2>
+				</div>
+
 			</div>
 		</section>
 	</script>
